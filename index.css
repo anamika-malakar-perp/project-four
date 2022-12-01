@@ -1,0 +1,266 @@
+body {
+    background-color: #3D087B;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin: 45px 0;
+}
+
+.alarm-section {
+    width: 500px;
+    margin-right: 20px;
+}
+
+.message-section {
+    margin-top: 15px;
+}
+
+.clock {
+    background-color: #3D087B;
+}
+
+.change-message {
+    width: 154px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.change-message span {
+    color: #a39e9e;
+}
+
+.clock-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.arrow-right { 
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #fff; /* to make like box shape */
+    height: 0;
+    top: 25px;
+    right: -9px;
+    position: absolute;
+}
+
+.time-table {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.timing {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.timing span {
+    color: #3D087B;
+    font-family: "Manrope", "sans-serif";
+}
+
+.timing select {
+    width: 281px;
+    height: 45px;
+    background: #fff;
+    border: 1px solid #EDEDED;
+    border-radius: 4px;
+}
+
+.separation {
+    height: 25px;
+    margin: 10px 0 10px 16px;
+    border: 3px solid #ccc;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+}
+
+.messages {
+    font-family: "Baumans", sans-serif;
+    font-weight: 600;
+    margin-top: 15px;
+    padding: 17px;
+    border-radius: 5px;
+    background-color: rgba(184, 94, 191, 0.5);
+    color: #fff;
+    font-size: 20px;
+}
+
+.set-alarm-with-time {
+    margin-top: 15px;
+    display: flex;
+    position: relative;
+    gap: 10px;
+}
+
+.set-alarm {
+    width: 50%;
+    background: transparent linear-gradient(113deg, #6E54EC 0%, #CB52F8 40%, #FC5EFF 81%, #F1A7C5 100%);
+    border-radius: 4px;
+    color: #fff;
+    text-align: center;
+    font-size: 23px;
+    padding: 10px;
+    height: 25px;
+}
+
+.time-showcase {
+    width: 50%;
+    border-radius: 10px;
+    line-height: 6px;
+    font-size: 15px;
+    padding: 0 10px;
+    color: #F25CFE;
+    background-color: rgba(184, 94, 191, 0.5);
+}
+
+.time {
+    background-color: #fff;
+    height: 100px;
+    border-radius: 8px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.purple-background-time {
+    background-color: #fff;
+    height: 49px;
+    border-radius: 8px;
+    width: 25%;
+    z-index: -2;
+    position: absolute;
+    bottom: top;
+    top: 127px;
+    right: 313px;
+    opacity: 0.71;
+}
+
+.white-background-time {
+    background-color: #fff;
+    height: 50px;
+    border-radius: 8px;
+    width: 20%;
+    z-index: -1;
+    position: absolute;
+    bottom: top;
+    right: 351px;
+    top: 140px;
+    opacity: 0.22;
+}
+
+.time span {
+    color: #3D087B;
+    font-size: 20px;
+}
+
+.time-count {
+    background-color: #F6E2FF;
+    width: 65px;
+    text-align: center;
+    padding: 10px 0;
+    color: #8A11BF;
+}
+
+.am-pm {
+    background: transparent linear-gradient(113deg, #6E54EC 0%, #CB52F8 40%, #FC5EFF 81%, #F1A7C5 100%);
+    width: 67px;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 3px;
+    padding: 23px 0;
+}
+
+.time-count p {
+    margin: 0;
+}
+
+.time .colon {
+    font-size: 35px;
+    margin: 0 8px;
+}
+
+.time-count p:first-child {
+    font-size: 28px;
+}
+
+.time-count p:last-child {
+    font-size: 18px;
+}
+
+.healthy-message {
+    font-family: "Baumans", sans-serif;
+    font-weight: 600;
+    background-color: #fff;
+    margin-top: 42px;
+    border-radius: 4px;
+    padding: 29px;
+    font-size: 23px;
+    text-align: center;
+    color: #8E53F0;
+    font-weight: 600;
+}
+
+.healthy-image {
+    width: 500px;
+    justify-content: center;
+    align-items: end;
+    height: 314px;
+    margin-top: 20px;
+    display: flex;
+    /* background-image: url('first-healthy-image.png');
+    background-repeat: no-repeat; */
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.arrow-up {
+    bottom: 56px;
+    right: 18px;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+}
+
+.change-image {
+    width: 205px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: -21px;
+    left: -81px
+}
+
+.change-image span {
+    color: #a39e9e;
+}
+
+.scheduled-time {
+    display: flex;
+    align-items: center;
+}
+
+select:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+

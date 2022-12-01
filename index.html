@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Baumans">
+</head>
+<body>
+    <div class="container">
+        <div class="alarm-section">
+            <div class="clock-section">
+                <div class="clock">
+                    <img src="clock.png" width="135px" height="55px">
+                </div>
+                <div class="change-message">
+                    <span>The message and image will change according to time</span>
+                    <div class="arrow-right"></div>
+                </div>
+            </div>
+
+            <div class="time-table">
+                <div class="timing">
+                    <img src="sun.png" width="34px" height="34px">
+                    <span>Set wake up time</span>
+                    <select name="times" id="time-table">
+                        <option value="first-time">8AM - 9AM</option>
+                        <option value="second-time">9AM - 10AM</option>
+                        <option value="third-time">10AM - 11AM</option>
+                        <option value="fourth-time">11AM - 12AM</option>
+                    </select>
+                </div>
+                <div class="separation"></div>
+                <div class="timing">
+                    <img src="spoons.png" width="34px" height="34px">
+                    <span>Set lunch time</span>
+                    <select name="times" id="time-table">
+                        <option value="first-time">8AM - 9AM</option>
+                        <option value="second-time">9AM - 10AM</option>
+                        <option value="third-time">10AM - 11AM</option>
+                        <option value="fourth-time">11AM - 12AM</option>
+                    </select>
+                </div>
+                <div class="separation"></div>
+                <div class="timing">
+                    <img src="nap.png" width="34px" height="34px">
+                    <span>Set nap time</span>
+                    <select name="times" id="time-table">
+                        <option value="first-time">8AM - 9AM</option>
+                        <option value="second-time">9AM - 10AM</option>
+                        <option value="third-time">10AM - 11AM</option>
+                        <option value="fourth-time">11AM - 12AM</option>
+                    </select>
+                </div>
+                <div class="separation"></div>
+                <div class="timing">
+                    <img src="nap.png" width="34px" height="34px">
+                    <span>Set night time</span>
+                    <select name="times" id="time-table">
+                        <option value="first-time">8AM - 9AM</option>
+                        <option value="second-time">9AM - 10AM</option>
+                        <option value="third-time">10AM - 11AM</option>
+                        <option value="fourth-time">11AM - 12AM</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="messages">
+                GOOD MORNING!! WAKE UP !!
+            </div>
+
+            <div class="set-alarm-with-time">
+                <div class="set-alarm">
+                    Set Alarm
+                </div>
+
+                <div class="change-image">
+                    <span>Time will be updated here after clicking on "Set Alarm"</span>
+                    <div class="arrow-up"></div>
+                </div>
+
+                <div class="time-showcase">
+                    <p>Wake Up Time : 10AM - 11AM</p>
+                    <p>Lunch Time : 12PM - 1PM</p>
+                    <p>Nap Time : 4PM - 5PM</p>
+                    <p>Night Time : 8PM-9AM</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="message-section">
+            <div class="time">
+                <span>TIME</span>
+                <div class="scheduled-time">
+                    <div class="hours time-count">
+                        <p>10</p>
+                        <p>hours</p>
+                    </div>
+                    <span class="colon">:</span>
+                    <div class="minute time-count">
+                        <p>00</p>
+                        <p>mins</p>
+                    </div>
+                    <span class="colon">:</span>
+                    <div class="seconds time-count">
+                        <p>01</p>
+                        <p>secs</p>
+                    </div>
+                </div>
+                <div class="am-pm">
+                    AM
+                </div>
+            </div>
+
+            <div class="white-background-time"></div>
+
+            <div class="purple-background-time"></div>
+
+            <div class="healthy-message">
+                GRAB SOME HEALTHY BREAKFAST!!!
+            </div>
+
+            <div class="healthy-image">
+                <img src="first-healthy-image.png" width="400px" height="300px">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
