@@ -15,6 +15,7 @@ body {
 }
 
 .message-section {
+    width: 500px;
     margin-top: 15px;
 }
 
@@ -84,7 +85,7 @@ body {
     border-bottom: none;
 }
 
-.messages {
+#messages {
     font-family: "Baumans", sans-serif;
     font-weight: 600;
     margin-top: 15px;
@@ -113,7 +114,7 @@ body {
     height: 25px;
 }
 
-.time-showcase {
+#time-showcase {
     width: 50%;
     border-radius: 10px;
     line-height: 6px;
@@ -137,12 +138,12 @@ body {
     background-color: #fff;
     height: 49px;
     border-radius: 8px;
-    width: 25%;
+    width: 22%;
     z-index: -2;
     position: absolute;
     bottom: top;
     top: 127px;
-    right: 313px;
+    right: 335px;
     opacity: 0.71;
 }
 
@@ -172,7 +173,7 @@ body {
     color: #8A11BF;
 }
 
-.am-pm {
+#am-pm {
     background: transparent linear-gradient(113deg, #6E54EC 0%, #CB52F8 40%, #FC5EFF 81%, #F1A7C5 100%);
     width: 67px;
     color: white;
@@ -199,24 +200,22 @@ body {
     font-size: 18px;
 }
 
-.healthy-message {
+#healthy-message {
     font-family: "Baumans", sans-serif;
     font-weight: 600;
     background-color: #fff;
     margin-top: 42px;
     border-radius: 4px;
-    padding: 29px;
-    font-size: 23px;
+    padding: 25px;
+    font-size: 20px;
     text-align: center;
     color: #8E53F0;
     font-weight: 600;
 }
 
-.healthy-image {
-    width: 500px;
+#healthy-image {
     justify-content: center;
     align-items: end;
-    height: 314px;
     margin-top: 20px;
     display: flex;
     /* background-image: url('first-healthy-image.png');

@@ -25,7 +25,7 @@
                 <div class="timing">
                     <img src="sun.png" width="34px" height="34px">
                     <span>Set wake up time</span>
-                    <select name="times" id="time-table">
+                    <select name="times" id="wake-up-time-table">
                         <option value="first-time">8AM - 9AM</option>
                         <option value="second-time">9AM - 10AM</option>
                         <option value="third-time">10AM - 11AM</option>
@@ -36,7 +36,7 @@
                 <div class="timing">
                     <img src="spoons.png" width="34px" height="34px">
                     <span>Set lunch time</span>
-                    <select name="times" id="time-table">
+                    <select name="times" id="lunch-time-table">
                         <option value="first-time">8AM - 9AM</option>
                         <option value="second-time">9AM - 10AM</option>
                         <option value="third-time">10AM - 11AM</option>
@@ -47,7 +47,7 @@
                 <div class="timing">
                     <img src="nap.png" width="34px" height="34px">
                     <span>Set nap time</span>
-                    <select name="times" id="time-table">
+                    <select name="times" id="nap-time-table">
                         <option value="first-time">8AM - 9AM</option>
                         <option value="second-time">9AM - 10AM</option>
                         <option value="third-time">10AM - 11AM</option>
@@ -58,7 +58,7 @@
                 <div class="timing">
                     <img src="nap.png" width="34px" height="34px">
                     <span>Set night time</span>
-                    <select name="times" id="time-table">
+                    <select name="times" id="night-time-table">
                         <option value="first-time">8AM - 9AM</option>
                         <option value="second-time">9AM - 10AM</option>
                         <option value="third-time">10AM - 11AM</option>
@@ -67,7 +67,7 @@
                 </div>
             </div>
 
-            <div class="messages">
+            <div id="messages">
                 GOOD MORNING!! WAKE UP !!
             </div>
 
@@ -81,11 +81,23 @@
                     <div class="arrow-up"></div>
                 </div>
 
-                <div class="time-showcase">
-                    <p>Wake Up Time : 10AM - 11AM</p>
-                    <p>Lunch Time : 12PM - 1PM</p>
-                    <p>Nap Time : 4PM - 5PM</p>
-                    <p>Night Time : 8PM-9AM</p>
+                <div id="time-showcase">
+                    <p>
+                        <span>Wake Up Time : </span>
+                        <span></span>
+                    </p>
+                    <p>
+                        <span>Lunch Time : </span>
+                        <span></span>
+                    </p>
+                    <p>
+                        <span>Nap Time : </span>
+                        <span></span>
+                    </p>
+                    <p>
+                        <span>Night Time : </span>
+                        <span></span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -94,38 +106,135 @@
             <div class="time">
                 <span>TIME</span>
                 <div class="scheduled-time">
-                    <div class="hours time-count">
-                        <p>10</p>
+                    <div id="hours" class="time-count">
+                        <p></p>
                         <p>hours</p>
                     </div>
                     <span class="colon">:</span>
-                    <div class="minute time-count">
-                        <p>00</p>
+                    <div id="minute" class="time-count">
+                        <p></p>
                         <p>mins</p>
                     </div>
                     <span class="colon">:</span>
-                    <div class="seconds time-count">
-                        <p>01</p>
+                    <div id="seconds" class="time-count">
+                        <p></p>
                         <p>secs</p>
                     </div>
                 </div>
-                <div class="am-pm">
-                    AM
-                </div>
+                <div id="am-pm"></div>
             </div>
 
             <div class="white-background-time"></div>
 
             <div class="purple-background-time"></div>
 
-            <div class="healthy-message">
-                GRAB SOME HEALTHY BREAKFAST!!!
-            </div>
+            <div id="healthy-message"></div>
 
-            <div class="healthy-image">
-                <img src="first-healthy-image.png" width="400px" height="300px">
+            <div id="healthy-image">
+                <img src="" width="500px" height="350px">
             </div>
         </div>
     </div>
+
+    <script>
+
+        //Section for clock timing
+        function timerFunction() {
+            let hours           = document.getElementById('hours').getElementsByTagName('p');
+            let minutes         = document.getElementById('minute').getElementsByTagName('p');
+            let seconds         = document.getElementById('seconds').getElementsByTagName('p');
+            let amPm            = document.getElementById('am-pm');
+
+            const d = new Date();
+
+            let hour = d.getHours();
+            hours[0].innerText = hour % 12 || 12;
+
+            let min = d.getMinutes();
+            minutes[0].innerText = min;
+
+            let sec = d.getSeconds();
+            seconds[0].innerText = sec;
+
+            timeUnit = hour >= 12 ? 'PM' : 'AM';
+            amPm.innerText = timeUnit;
+
+            setMessage(hour % 12 || 12);
+        }
+
+        setInterval(function() {
+            timerFunction();
+        },1000)
+
+        //Section to set the wake up time in table
+        let wakeUpTimeTable = document.getElementById('wake-up-time-table');
+
+        //Section to set the lunch time in table
+        let lunchTimeTable = document.getElementById('lunch-time-table');
+
+        //Section to set the nap time in table
+        let napTimeTable = document.getElementById('nap-time-table');
+
+        //Section to set the nap time in table
+        let nightTimeTable = document.getElementById('night-time-table');
+
+        function timeTable(timeShowcase, event) {
+            //event.target -->it gets you the targeted element
+            //event.target.value --> it will give u the value of the selected option
+            //event.target.selectedOptions will give you the collection of all the options that you have
+            //selected
+            timeShowcase.innerText = event.target.selectedOptions[0].text;
+        }
+
+        wakeUpTimeTable.addEventListener("change", function(event){
+            let timeShowcase = document.getElementById('time-showcase').getElementsByTagName('p')[0].getElementsByTagName('span')[1];
+            timeTable(timeShowcase, event);
+        });
+
+        lunchTimeTable.addEventListener("change", function(event){
+            let timeShowcase = document.getElementById('time-showcase').getElementsByTagName('p')[1].getElementsByTagName('span')[1];
+            timeTable(timeShowcase, event);
+        });
+
+        napTimeTable.addEventListener("change", function(event){
+            let timeShowcase = document.getElementById('time-showcase').getElementsByTagName('p')[2].getElementsByTagName('span')[1];
+            timeTable(timeShowcase, event);
+        });
+
+        nightTimeTable.addEventListener("change", function(event){
+            let timeShowcase = document.getElementById('time-showcase').getElementsByTagName('p')[3].getElementsByTagName('span')[1];
+            timeTable(timeShowcase, event);
+        });
+
+        function setMessage(hour) {
+            let healthyMessage  = document.getElementById('healthy-message');
+            let message         = document.getElementById('messages');
+            let healthyImage    = document.getElementById('healthy-image').getElementsByTagName('img');
+
+            if(hour >=10 && hour <= 12 ) {
+                healthyMessage.innerText = 'GRAB SOME HEALTHY BREAKFAST';
+                message.innerText = 'GOOD MORNING!! WAKE UP !!';
+                healthyImage[0].src = 'first-healthy-image.png';
+            }
+
+            if(hour >= 12 && hour <= 4) {
+                healthyMessage.innerText = `LET'S HAVE SOME LUNCH !!`;
+                message.innerText = 'GOOD AFTERNOON !! TAKE SOME SLEEP';
+                healthyImage[0].src = 'lunch.png';
+            }
+
+            if(hour >=4 && hour <=8 ) {
+                healthyMessage.innerText = 'STOP YAWNING, GET SOME TEA.. ITS JUST EVENING!';
+                message.innerText = 'GOOD EVENING !!';
+                healthyImage[0].src = 'cup.png';
+            }
+
+            if(hour >=8 && hour <=10 ) {
+                healthyMessage.innerText = 'STOP YAWNING, GET SOME TEA.. ITS JUST EVENING!';
+                message.innerText = 'GOOD NIGHT !!';
+                healthyImage[0].src = 'sleep.png';
+            }
+        }
+    </script>
 </body>
 </html>
