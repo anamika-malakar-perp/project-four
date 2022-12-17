@@ -114,6 +114,14 @@ body {
     height: 25px;
 }
 
+.set-alarm:hover span {
+    display: none;
+}
+
+.set-alarm:hover:before {
+    content: "Party time!"
+}
+
 #time-showcase {
     width: 50%;
     border-radius: 10px;
