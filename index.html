@@ -242,15 +242,15 @@
             let message         = document.getElementById('messages');
             let healthyImage    = document.getElementById('healthy-image').getElementsByTagName('img');
 
-            if((hour >=10 || hour <= 12) && timeUnit === 'AM') {
+            if((hour >=10 || hour < 12) && timeUnit === 'AM') {
                 healthyMessage.innerText = 'GRAB SOME HEALTHY BREAKFAST';
                 message.innerText = 'GOOD MORNING!! WAKE UP !!';
                 healthyImage[0].src = 'first-healthy-image.png';
-            } else if((hour >= 12 || hour <= 4) && timeUnit === 'PM') {
+            } else if((hour >= 12 || hour < 4) && timeUnit === 'PM') {
                 healthyMessage.innerText = `LET'S HAVE SOME LUNCH !!`;
                 message.innerText = 'GOOD AFTERNOON !! TAKE SOME SLEEP';
                 healthyImage[0].src = 'lunch.png';
-            } else if((hour >=4 || hour <=8) && timeUnit === 'PM') {
+            } else if((hour >=4 || hour < 8) && timeUnit === 'PM') {
                 healthyMessage.innerText = 'STOP YAWNING, GET SOME TEA.. ITS JUST EVENING!';
                 message.innerText = 'GOOD EVENING !!';
                 healthyImage[0].src = 'cup.png';
