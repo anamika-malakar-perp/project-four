@@ -67,14 +67,12 @@
                 </div>
             </div>
 
-            <div id="messages">
-                GOOD MORNING!! WAKE UP !!
-            </div>
+            <div id="messages"></div>
 
             <div class="set-alarm-with-time">
-                <div class="set-alarm">
+                <button id="set-alarm">
                     <span>Set Alarm</span>
-                </div>
+                </button>
 
                 <div class="change-image">
                     <span>Time will be updated here after clicking on "Set Alarm"</span>
@@ -84,19 +82,19 @@
                 <div id="time-showcase">
                     <p>
                         <span>Wake Up Time : </span>
-                        <span></span>
+                        <span>Set Time</span>
                     </p>
                     <p>
                         <span>Lunch Time : </span>
-                        <span></span>
+                        <span>Set Time</span>
                     </p>
                     <p>
                         <span>Nap Time : </span>
-                        <span></span>
+                        <span>Set Time</span>
                     </p>
                     <p>
                         <span>Night Time : </span>
-                        <span></span>
+                        <span>Set Time</span>
                     </p>
                 </div>
             </div>
@@ -140,10 +138,10 @@
 
         //Section for clock timing
         function timerFunction() {
-            let hours           = document.getElementById('hours').getElementsByTagName('p');
-            let minutes         = document.getElementById('minute').getElementsByTagName('p');
-            let seconds         = document.getElementById('seconds').getElementsByTagName('p');
-            let amPm            = document.getElementById('am-pm');
+            let hours   = document.getElementById('hours').getElementsByTagName('p');
+            let minutes = document.getElementById('minute').getElementsByTagName('p');
+            let seconds = document.getElementById('seconds').getElementsByTagName('p');
+            let amPm    = document.getElementById('am-pm');
 
             const d = new Date();
 
@@ -159,7 +157,7 @@
             timeUnit = hour >= 12 ? 'PM' : 'AM';
             amPm.innerText = timeUnit;
 
-            setMessage(hour % 12 || 12);
+            setMessage(hour % 12 || 12, timeUnit);
         }
 
         setInterval(function() {
@@ -178,59 +176,86 @@
         //Section to set the nap time in table
         let nightTimeTable = document.getElementById('night-time-table');
 
-        function timeTable(timeShowcase, event) {
+        //Set alarm btn 
+        let setBtn = document.getElementById('set-alarm');
+        let timeTableArray = [];
+
+        //Section to set the time table
+        function timeTable(timeEventArray) {
             //event.target -->it gets you the targeted element
             //event.target.value --> it will give u the value of the selected option
             //event.target.selectedOptions will give you the collection of all the options that you have
             //selected
-            timeShowcase.innerText = event.target.selectedOptions[0].text;
+            let array = document.getElementById('time-showcase').getElementsByTagName('p');
+            for(let i =0;i<array.length;i++) {
+                for(let j =0;j<timeEventArray.length;j++) {
+                    if(array[i].getElementsByTagName('span')[0].innerText === timeEventArray[j].timeText) {
+                        array[i].getElementsByTagName('span')[1].innerText = timeEventArray[j].timeEvent;
+                    }
+                }
+            }
         }
 
-        wakeUpTimeTable.addEventListener("change", function(event){
-            let timeShowcase = document.getElementById('time-showcase').getElementsByTagName('p')[0].getElementsByTagName('span')[1];
-            timeTable(timeShowcase, event);
+        wakeUpTimeTable.addEventListener("change", function(event) {
+            let obj = {
+                timeText: document.getElementById('time-showcase').getElementsByTagName('p')[0].getElementsByTagName('span')[0].innerText,
+                timeEvent: event.target.selectedOptions[0].innerText
+            }
+
+            timeTableArray.push(obj);
         });
 
         lunchTimeTable.addEventListener("change", function(event){
-            let timeShowcase = document.getElementById('time-showcase').getElementsByTagName('p')[1].getElementsByTagName('span')[1];
-            timeTable(timeShowcase, event);
+            let obj = {
+                timeText: document.getElementById('time-showcase').getElementsByTagName('p')[1].getElementsByTagName('span')[0].innerText,
+                timeEvent: event.target.selectedOptions[0].innerText
+            }
+
+            timeTableArray.push(obj);
         });
 
         napTimeTable.addEventListener("change", function(event){
-            let timeShowcase = document.getElementById('time-showcase').getElementsByTagName('p')[2].getElementsByTagName('span')[1];
-            timeTable(timeShowcase, event);
+            let obj = {
+                timeText: document.getElementById('time-showcase').getElementsByTagName('p')[2].getElementsByTagName('span')[0].innerText,
+                timeEvent: event.target.selectedOptions[0].innerText
+            }
+
+            timeTableArray.push(obj);
         });
 
         nightTimeTable.addEventListener("change", function(event){
-            let timeShowcase = document.getElementById('time-showcase').getElementsByTagName('p')[3].getElementsByTagName('span')[1];
-            timeTable(timeShowcase, event);
+            let obj = {
+                timeText: document.getElementById('time-showcase').getElementsByTagName('p')[3].getElementsByTagName('span')[0].innerText,
+                timeEvent: event.target.selectedOptions[0].innerText
+            }
+
+            timeTableArray.push(obj);
         });
 
-        function setMessage(hour) {
+        setBtn.addEventListener('click', function() {
+            timeTable(timeTableArray);
+        });
+
+        //Section to set the messages
+        function setMessage(hour, timeUnit) {
             let healthyMessage  = document.getElementById('healthy-message');
             let message         = document.getElementById('messages');
             let healthyImage    = document.getElementById('healthy-image').getElementsByTagName('img');
 
-            if(hour >=10 && hour <= 12 ) {
+            if((hour >=10 || hour <= 12) && timeUnit === 'AM') {
                 healthyMessage.innerText = 'GRAB SOME HEALTHY BREAKFAST';
                 message.innerText = 'GOOD MORNING!! WAKE UP !!';
                 healthyImage[0].src = 'first-healthy-image.png';
-            }
-
-            if(hour >= 12 && hour <= 4) {
+            } else if((hour >= 12 || hour <= 4) && timeUnit === 'PM') {
                 healthyMessage.innerText = `LET'S HAVE SOME LUNCH !!`;
                 message.innerText = 'GOOD AFTERNOON !! TAKE SOME SLEEP';
                 healthyImage[0].src = 'lunch.png';
-            }
-
-            if(hour >=4 && hour <=8 ) {
+            } else if((hour >=4 || hour <=8) && timeUnit === 'PM') {
                 healthyMessage.innerText = 'STOP YAWNING, GET SOME TEA.. ITS JUST EVENING!';
                 message.innerText = 'GOOD EVENING !!';
                 healthyImage[0].src = 'cup.png';
-            }
-
-            if(hour >=8 && hour <=10 ) {
-                healthyMessage.innerText = 'STOP YAWNING, GET SOME TEA.. ITS JUST EVENING!';
+            } else {
+                healthyMessage.innerText = 'CLOSE YOUR EYES AND GO TO SLEEP';
                 message.innerText = 'GOOD NIGHT !!';
                 healthyImage[0].src = 'sleep.png';
             }
