@@ -250,7 +250,7 @@
                 healthyMessage.innerText = `LET'S HAVE SOME LUNCH !!`;
                 message.innerText = 'GOOD AFTERNOON !! TAKE SOME SLEEP';
                 healthyImage[0].src = 'lunch.png';
-            } else if((hour >=4 || hour < 8) && timeUnit === 'PM') {
+            } else if((hour >=4 && hour < 8) && timeUnit === 'PM') {
                 healthyMessage.innerText = 'STOP YAWNING, GET SOME TEA.. ITS JUST EVENING!';
                 message.innerText = 'GOOD EVENING !!';
                 healthyImage[0].src = 'cup.png';
