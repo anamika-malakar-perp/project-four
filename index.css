@@ -271,3 +271,45 @@ select:after {
     border-color: #fff transparent transparent transparent;
 }
 
+@media only screen
+and (min-width: 320px) 
+and (max-width: 1300px) {
+    body {
+        margin: 8px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .change-message, .change-image {
+        display: none;
+    }
+
+    .alarm-section {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .message-section {
+        width: 100%;
+    }
+
+    #healthy-image img {
+        width: 100%;
+    }
+
+    .white-background-time {
+        width: 62%;
+        right: 73px;
+        top: 769px;
+    }
+
+    .purple-background-time {
+        width: 76%;
+        top: 759px;
+        right: 47px;
+    }
+}
+
