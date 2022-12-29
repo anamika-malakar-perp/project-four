@@ -143,7 +143,7 @@
                 </div>
             </div>
 
-            <div id="messages"></div>
+            <div id="messages">Take care of yourself</div>
 
             <div class="set-alarm-with-time">
                 <button id="set-alarm">
@@ -202,7 +202,7 @@
 
             <div class="purple-background-time"></div>
 
-            <div id="healthy-message">Take care of yourself</div>
+            <div id="healthy-message"></div>
 
             <div id="healthy-image">
                 <img src="./Take-care-of-your-health-messages.jpg" width="500px" height="350px">
@@ -273,25 +273,25 @@
 
             let hour = d.getHours();
             let timeUnit = hour >= 12 ? 'PM' : 'AM';
-            let healthyMessage  = document.getElementById('healthy-message');
+            let message         = document.getElementById('messages');
             let healthyImage    = document.getElementById('healthy-image').getElementsByTagName('img');
 
             for(let i=0;i<timeEventArray.length;i++) {
                 if(timeEventArray[i].timeEvent.split(" ")[0].includes(hour % 12 || 12) && timeEventArray[i].timeEvent.split(" ")[0].includes(timeUnit)) {
                     if(timeEventArray[i].timeText === "Wake Up Time : ") {
-                        healthyMessage.innerText = 'GRAB SOME HEALTHY BREAKFAST';
+                        message.innerText = 'GOOD MORNING!! WAKE UP !!';
                         healthyImage[0].src = 'first-healthy-image.png';
                     } else if(timeEventArray[i].timeText === "Lunch Time : ") {
-                        healthyMessage.innerText = `LET'S HAVE SOME LUNCH !!`;
+                        message.innerText = 'GOOD AFTERNOON !! TAKE SOME SLEEP';
                         healthyImage[0].src = 'lunch.png';
                     } else if(timeEventArray[i].timeText === "Nap Time : ") {
-                        healthyMessage.innerText = 'STOP YAWNING, GET SOME TEA.. ITS JUST EVENING!';
+                        message.innerText = 'GOOD EVENING !!';
                         healthyImage[0].src = 'cup.png';
                     } else if(timeEventArray[i].timeText === "Night Time : ") {
-                        healthyMessage.innerText = 'CLOSE YOUR EYES AND GO TO SLEEP';
+                        message.innerText = 'GOOD NIGHT !!';
                         healthyImage[0].src = 'sleep.png';
                     } else {
-                        healthyMessage.innerText = 'Take care of yourself';
+                        message.innerText = 'Take care of yourself';
                         healthyImage[0].src = 'Take-care-of-your-health-messages.jpg';
                     }
                 }
@@ -340,16 +340,16 @@
 
         //Section to set the messages
         function setMessage(hour, timeUnit) {
-            let message         = document.getElementById('messages');
+            let healthyMessage  = document.getElementById('healthy-message');
 
             if((hour >=10 || hour < 12) && timeUnit === 'AM') {
-                message.innerText = 'GOOD MORNING!! WAKE UP !!';
+                healthyMessage.innerText = 'GRAB SOME HEALTHY BREAKFAST';
             } else if((hour >= 12 || hour < 4) && timeUnit === 'PM') {
-                message.innerText = 'GOOD AFTERNOON !! TAKE SOME SLEEP';
+                healthyMessage.innerText = `LET'S HAVE SOME LUNCH !!`;
             } else if((hour >=4 && hour < 8) && timeUnit === 'PM') {
-                message.innerText = 'GOOD EVENING !!';
+                healthyMessage.innerText = 'STOP YAWNING, GET SOME TEA.. ITS JUST EVENING!';
             } else {
-                message.innerText = 'GOOD NIGHT !!';
+                healthyMessage.innerText = 'CLOSE YOUR EYES AND GO TO SLEEP';
             }
         }
     </script>
