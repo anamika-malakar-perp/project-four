@@ -220,7 +220,7 @@
             let minutes = document.getElementById('minute').getElementsByTagName('p');
             let seconds = document.getElementById('seconds').getElementsByTagName('p');
             let amPm    = document.getElementById('am-pm');
-
+            const d = new Date();
             let hour = d.getHours();
             hours[0].innerText = hour % 12 || 12;
 
@@ -238,7 +238,7 @@
 
         setInterval(function() {
             timerFunction();
-        },1000)
+        }, 1000)
 
         //Section to set the wake up time in table
         let wakeUpTimeTable = document.getElementById('wake-up-time-table');
